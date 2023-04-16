@@ -14,3 +14,4 @@ unipath
 whitenoise
 boto3
 unidecode
+ShopifyAPI
