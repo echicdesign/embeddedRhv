@@ -80,10 +80,10 @@ def authenticate(request):
             scopes, redirect_uri, state
         )
 
-        print("permission_url | "+str(permission_url))
+        # print("permission_url | "+str(permission_url))
 
-        print("views.authenticate.return1")
-        permission_url = permission_url.replace("None","068b-122-61-79-235.ngrok-free.app")
+        # print("views.authenticate.return1")
+        permission_url = permission_url.replace("None","4171-122-61-79-235.ngrok-free.app")
         return redirect(permission_url)
 
 # 068b-122-61-79-235.ngrok-free.app
