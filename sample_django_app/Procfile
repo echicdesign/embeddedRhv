@@ -1,0 +1,1 @@
+web: gunicorn sample_django_app.wsgi --log-file -
