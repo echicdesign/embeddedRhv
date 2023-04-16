@@ -3,3 +3,8 @@ djangorestframework
 django-cors-headers
 ShopifyAPI>=8.4.0
 python-dotenv
+
+django-heroku
+python-decouple
+django-anymail
+gunicorn
