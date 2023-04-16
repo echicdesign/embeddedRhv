@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+import django_heroku
 from pathlib import Path
 from dotenv import load_dotenv
 import os
@@ -36,6 +36,10 @@ DEBUG = True
 CURRENT_NGROK = config('CURRENT_NGROK')
 
 ALLOWED_HOSTS =     config('ALLOWED_HOSTS', cast=lambda v: [s.strip("") for s in v.split(',')])+   [     CURRENT_NGROK ]
+
+
+for host in ALLOWED_HOSTS:
+    print("host: "+str(host))
 
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
@@ -152,3 +156,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Activate Django-Heroku.
+django_heroku.settings(locals())
