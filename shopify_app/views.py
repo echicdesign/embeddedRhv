@@ -6,13 +6,13 @@ from django.views import View
 from django.views.decorators.csrf import csrf_exempt
 from django.apps import apps
 from .models import Shop
+import shopify
 from shopify.utils import shop_url
 from decouple import config
 import binascii
 import json
 import os
 import re
-import shopify
 
 
 class LoginView(View):
