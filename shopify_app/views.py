@@ -7,7 +7,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.apps import apps
 from .models import Shop
 from shopify.utils import shop_url
-
+from decouple import config
 import binascii
 import json
 import os
@@ -83,7 +83,15 @@ def authenticate(request):
         # print("permission_url | "+str(permission_url))
 
         # print("views.authenticate.return1")
-        permission_url = permission_url.replace("None","4171-122-61-79-235.ngrok-free.app")
+
+        SERVER_OR_LOCAL=config('SERVER_OR_LOCAL')
+        if SERVER_OR_LOCAL.lower() == 'local' :
+            fixedAppURL =  config('CURRENT_NGROK')
+
+        else:
+             fixedAppURL = "metaologist.herokuapp.com"   
+
+        permission_url = permission_url.replace("None",fixedAppURL)
         return redirect(permission_url)
 
 # 068b-122-61-79-235.ngrok-free.app

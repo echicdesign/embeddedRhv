@@ -33,9 +33,9 @@ DEBUG = True
 # ALLOWED_HOSTS = [
 #     os.getenv('APP_URL'),
 # ]
+CURRENT_NGROK = config('CURRENT_NGROK')
 
-ALLOWED_HOSTS =     config('ALLOWED_HOSTS', cast=lambda v: [s.strip("") for s in v.split(',')])
-
+ALLOWED_HOSTS =     config('ALLOWED_HOSTS', cast=lambda v: [s.strip("") for s in v.split(',')])+   [     CURRENT_NGROK ]
 
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
