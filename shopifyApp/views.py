@@ -21,7 +21,7 @@ class LoginView(View):
         if request.GET.get("shop"):
             return authenticate(request)
         return render(
-            request, "shopify_app/login.html", {"app_name": "Sample Django app"}
+            request, "shopifyApp/login.html", {"app_name": "Sample Django app"}
         )
 
     def post(self, request):
@@ -132,12 +132,12 @@ def build_auth_params(request):
 
 def get_configured_scopes():
     print("views.get_configured_scopes")
-    return apps.get_app_config("shopify_app").SHOPIFY_API_SCOPES.split(",")
+    return apps.get_app_config("shopifyApp").SHOPIFY_API_SCOPES.split(",")
 
 
 def build_redirect_uri():
     print("views.build_redirect_uri")
-    app_url = apps.get_app_config("shopify_app").APP_URL
+    app_url = apps.get_app_config("shopifyApp").APP_URL
     callback_path = reverse("callback")
     print("views.build_redirect_uri.return")
     return "https://{app_url}{callback_path}".format(
@@ -158,9 +158,9 @@ def store_state_param(request, state):
 def _new_session(shop_url):
     print("views._new_session")
     print("shop_url|    "                +   str(shop_url))
-    shopify_api_version             =   apps.get_app_config("shopify_app").SHOPIFY_API_VERSION
-    shopify_api_key                 =   apps.get_app_config("shopify_app").SHOPIFY_API_KEY
-    shopify_api_secret              =   apps.get_app_config("shopify_app").SHOPIFY_API_SECRET
+    shopify_api_version             =   apps.get_app_config("shopifyApp").SHOPIFY_API_VERSION
+    shopify_api_key                 =   apps.get_app_config("shopifyApp").SHOPIFY_API_KEY
+    shopify_api_secret              =   apps.get_app_config("shopifyApp").SHOPIFY_API_SECRET
     print("shopify_api_version| "    +   str(shopify_api_version))
     # print("shopify_api_key| "        +   str(shopify_api_key))
     # print("shopify_api_secret|  "     +   str(shopify_api_secret))
@@ -222,7 +222,7 @@ def after_authenticate_jobs(shop, access_token):
 def create_uninstall_webhook(shop, access_token):
     print("views.create_uninstall_webhook")
     with shopify_session(shop, access_token):
-        app_url = apps.get_app_config("shopify_app").APP_URL
+        app_url = apps.get_app_config("shopifyApp").APP_URL
         webhook = shopify.Webhook()
         webhook.topic = "app/uninstalled"
         webhook.address = "https://{host}/uninstall".format(host=app_url)
@@ -233,5 +233,5 @@ def create_uninstall_webhook(shop, access_token):
 def shopify_session(shopify_domain, access_token):
     print("views.shopify_session")
 
-    api_version = apps.get_app_config("shopify_app").SHOPIFY_API_VERSION
+    api_version = apps.get_app_config("shopifyApp").SHOPIFY_API_VERSION
     return shopify.Session.temp(shopify_domain, api_version, access_token)

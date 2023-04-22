@@ -2,8 +2,6 @@
 # $GIT_DIR/info/exclude or the core.excludesFile configuration variable as
 # described in https://git-scm.com/docs/gitignore
 
-**/sample_django_appxxx/*.*
-sample-django-app-main.zip
 .env
 **/.env
 

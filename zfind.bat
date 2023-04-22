@@ -1,9 +1,9 @@
 cls
-cd k:\sample_django_app\home
+cd k:\appDjango\home
 find %1 /I *.py
-cd k:\sample_django_app\shopify_app
+cd k:\appDjango\shopifyApp
 find %1 /I *.py
-cd k:\sample_django_app\sample_django_app
+cd k:\appDjango\appDjango
 find %1 /I *.py
 cd ..
 

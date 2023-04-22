@@ -1,5 +1,5 @@
 from django.http import JsonResponse
-from shopify_app.decorators import session_token_required
+from shopifyApp.decorators import session_token_required
 
 import shopify
 

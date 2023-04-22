@@ -15,3 +15,5 @@ whitenoise
 boto3
 unidecode
 ShopifyAPI
+reportlab
+bs4

@@ -1,16 +1,16 @@
-git add home/templates/*.html
-git add home/templates/home/*.html
-git add home/*.py
+git add rhvcode/templates/*.html
+git add rhvcode/templates/rhvcode/*.html
+git add rhvcode/*.py
 
 
-git add shopify_app/templates/*.html
-git add shopify_app/templates/shopify_app/*.html
-git add shopify_app/*.py
+git add shopifyApp/templates/*.html
+git add shopifyApp/templates/shopifyApp/*.html
+git add shopifyApp/*.py
 
-git add shopify_django_app/*.py
+git add appDjango/*.py
 
-git add home/static/stylesheets/application.css
-copy home/static/stylesheets/*.* static/*.*
+git add rhvcode/static/stylesheets/application.css
+copy rhvcode/static/stylesheets/*.* static/*.*
 git add static/*.*
 
 git commit -m %1

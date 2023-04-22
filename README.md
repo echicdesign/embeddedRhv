@@ -23,10 +23,10 @@ SCOPES=<Scopes needed for the app>
 $ pip install -r requirements.txt
 ```
 
-3. Change directories to the main `sample_django_app` app and run all pending migrations:
+3. Change directories to the main `appDjango` app and run all pending migrations:
 
 ```console
-$ cd sample_django_app
+$ cd appDjango
 $ python manage.py migrate
 ```
 

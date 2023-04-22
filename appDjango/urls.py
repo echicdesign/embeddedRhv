@@ -16,8 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
-from shopify_app.views import  callback, LoginView, uninstall
-from home.views import HomeView
+from shopifyApp.views import  callback, LoginView, uninstall
+from rhvCode.views import HomeView
 
 urlpatterns = [
     path('admin/', admin.site.urls),

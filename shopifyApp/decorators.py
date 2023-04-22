@@ -3,8 +3,8 @@ from django.http import HttpResponse, HttpResponseForbidden
 from django.urls import reverse
 from django.shortcuts import redirect
 from shopify import ApiAccess, Session, session_token
-from shopify_app.models import Shop
-from shopify_app.views import get_sanitized_shop_param
+from shopifyApp.models import Shop
+from shopifyApp.views import get_sanitized_shop_param
 
 
 HTTP_AUTHORIZATION_HEADER = "HTTP_AUTHORIZATION"
@@ -15,8 +15,8 @@ def session_token_required(func):
         try:
             decoded_session_token = session_token.decode_from_header(
                 authorization_header=authorization_header(args[0]),
-                api_key=apps.get_app_config("shopify_app").SHOPIFY_API_KEY,
-                secret=apps.get_app_config("shopify_app").SHOPIFY_API_SECRET,
+                api_key=apps.get_app_config("shopifyApp").SHOPIFY_API_KEY,
+                secret=apps.get_app_config("shopifyApp").SHOPIFY_API_SECRET,
             )
             with shopify_session(decoded_session_token):
                 return func(*args, **kwargs)
